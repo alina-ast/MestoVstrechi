@@ -1,0 +1,269 @@
+.donat{
+    font-family: Arial, sans-serif;
+        }
+        .btndonat {
+            margin: 20px;
+        }
+        .popap {
+            display: none; /* Скрыто по умолчанию */
+            background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон */
+            justify-content: center;
+            align-items: center;
+        }
+        .popap-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            text-align: center;
+        }
+        .popap-content input {
+            width: calc(100% - 20px);
+            margin: 10px 0;
+            padding: 10px;
+        }
+        .close-btn {
+            margin-top: 10px;
+            display: inline-block;
+            text-decoration: none;
+            color: #007BFF;
+        
+}
+.teambtn {
+    scroll-behavior: smooth;
+}
+.distanttext{
+    text-align: left;
+}
+.main {
+    background-color: rgb(145, 229, 230);
+    text-align: center;
+    font-size: 15px;
+}
+.nameMain {
+    text-align: center;
+    font-size: 30px;
+    line-height: 2px;
+}
+.btnhead{
+    text-align: right;
+}
+header {
+    background-color: rgb(162, 215, 240);
+    padding: 20px;
+    text-align: center;
+    place-items: center;
+    height: 5%;
+}
+
+header h1 {
+    margin: 0;
+    color: #333;
+    font-size: 14px;
+    width: 800px;
+    height: 10%;
+    /*place-items: center;*/
+
+}
+.shapka img {
+    /*max-width: 50px;*/
+    width: 1000px ;
+    height: 200px ;
+    /*margin: 1 auto;
+    padding: 1px;*/
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #0a0808;
+    border: #090808;
+    border-radius: 10px;
+}
+.noacc a {
+    top: 100%;
+    text-decoration: none;
+    color: #333;
+}
+.noacc {
+    top: 100%;
+    text-decoration: none;
+}
+.close a {
+    top: 100%;
+    text-decoration: none;
+    color: #333;
+}
+.close {
+    top: 100%;
+    text-decoration: none;
+}
+
+/* Стили для основного контента */
+.main, .catalog {
+    padding: 20px;
+}
+
+.product {
+    display: inline-block;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.product img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+   /* border: 1px solid #ddd;
+    border-radius: 5px;*/
+}
+
+/* Стили для подвала */
+footer {
+    background-color: #29397f;
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+}
+.Lim{
+    color: red;
+    
+}
+/*jg*/
+.popup { 
+    display: none; /* Скрыто по умолчанию */ 
+    position: fixed; 
+    top: 20%; 
+    left: 85%; 
+    transform: translate(-50%, -50%); 
+    background-color: #fff; 
+    padding: 60px; 
+    border-radius: 30px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+    z-index: 0; 
+    size: 20px;
+} 
+
+/*Обёрнутые кнопки*/
+.button-container {
+    display: flex;
+    gap: 20px;
+    justify-content: flex-start;
+    align-items: center; /* Выравнивание по вертикали */
+    margin: 0; /* Убедитесь, что у контейнера нет лишних отступов */
+    padding: 0; /* Убедитесь, что у контейнера нет лишних внутренних отступов */
+}
+
+/* Стили для кнопки регистрации */ 
+/* Стили для кнопок */
+.register-button, .donat-button { 
+    margin-top: 40px;
+    background-color: rgb(61, 139, 202);  
+    border: 1px solid rgb(72, 151, 215);
+    border-radius: 30px;
+    padding: 10px 20px; 
+    font-size: 20px;
+    cursor: pointer;
+    display: inline-block;
+}
+
+.btndonat{
+    text-align: right;
+}
+
+.register-button:hover, .donat-button:hover, input[type="submit"]:hover {
+    background-color: #131db5;
+    color: #f8f8f8;
+}
+
+.popap { 
+    display: none; /* Скрыто по умолчанию */ 
+    position: fixed; 
+    top: 25%; 
+    left: 85%; 
+    transform: translate(-50%, -50%); 
+    background-color: #fff; 
+    padding: 60px; 
+    border-radius: 30px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+    z-index: 0; 
+    size: 20px;
+} 
+
+/* Карта */
+#map {
+    width: 100%;
+    height: 400px;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/*попытка сделать единый стиль логина и рега*/
+input[type="text"],
+input[type="password"],
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+input[type="submit"] {
+    background-color: #255099;
+    color: #fff;
+    cursor: pointer;
+}
+/*типо крутой текст*/
+
+.parent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* или другая высота, в зависимости от родительского контейнера */
+}
+  
+.distanttext {
+    text-align: center;
+    place-items: center;
+    background-color: #408ee172;
+    border-radius: 16px;
+    width: 400px;
+}
+
+
+footer img {
+    width: 2%;
+    height: 2%;
+    object-fit: cover;   
+}
+
+.rating-container {
+    margin: 20px;
+}
+
+.rating-container h2 {
+    margin-bottom: 10px;
+}
+
+.rating-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.rating-container select,
+.rating-container textarea,
+.rating-container input[type="submit"] {
+    margin-bottom: 10px;
+}
+

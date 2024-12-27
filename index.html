@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Карты</title>
+      <link rel="stylesheet" href="styl.css">
+      <link rel="stylesheet" href="java.js">
+      <link rel="stylesheet" href="styl.css">
+    <link rel="stylesheet" href="submit_rating.php">
+
+
+
+      <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=YOUR_API_KEY" type="text/javascript"></script>
+    <style>
+        #map {
+            width: 75%;
+            height: 600px; /* Высота карты */
+        }
+    </style>
+  </head>
+  <body>
+      <header>
+          <div class="shapka">
+            <h1>Добро пожаловать на наш сайт, где вы можете отмечать интересные места на карте и делиться ими с друзьями!</h1> 
+
+        <h1> Создавайте свои собственные карты с местами, которые хотите посетить или которые уже посетили, добавляйте фотографии и описания.</h1>
+
+        <h1>А также просматривайте карты других пользователей, чтобы получить новые идеи для путешествий!</h1>
+
+        <h1>Не забудьте оставить отзыв и оформить подписочку)</h1>
+
+        <h1>Начните отмечать места прямо сейчас и делитесь своими приключениями с миром!</h1>
+                </div>
+
+            <div class="button-container"> 
+                    <div class="donat" id="donat">
+                        <div class="btndonat">
+                            <button class="donat-button" onclick="document.getElementById('popap').style.display='flex'">Подписка</button> <!-- Кнопка регистрации --> 
+                        </div>
+                        
+                        <!-- Всплывающее окно --> 
+                        <div id="popap" class="popap" onclick="closePopup(event)"> 
+                            <div class="popap-content" onclick="event.stopPropagation()">
+                                <h2>Подписка на Map+</h2>
+                                <p>Подписка стоит 299р.</p> 
+                                <form id="paymentForm" onsubmit="return validateForm()">
+                                    <input type="number" name="numbercard" placeholder="Номер карты" required>
+                                    <input type="text" name="Date" placeholder="Дата (MM/YY)" required>
+                                    <input type="number" name="cvv" placeholder="CVV код" required>
+                                    <input type="submit" value="Оплатить">  
+                                </form>
+                                <a href="#" class="close-btn" onclick="closePopup(event)">Закрыть</a>
+                            </div>
+                        </div>
+                        
+                        <script>
+                            function closePopup(event) {
+                                event.preventDefault();
+                                document.getElementById('popap').style.display = 'none';
+                            }
+                        
+                            function validateForm() {
+                                // Здесь можно добавить дополнительную валидацию
+                                alert("Оплата прошла успешно!"); // Заглушка для успешной оплаты
+                                closePopup(event);
+                                return false; // Не отправляем форму для демонстрации
+                            }
+                        </script>
+                
+                    </div>
+                    
+
+                <nav>
+                    <ul>
+                        <div class="btnhead">
+                            <button class="register-button" onclick="document.getElementById('popup').style.display='block'">Войти</button> <!-- Кнопка регистрации --> 
+                        </div>
+                
+                            <!-- Всплывающее окно --> 
+                            <div id="popup" class="popup"> 
+                                <h2>Вход в аккаунт</h2> 
+                                <form action="" method="post">
+                                <input type="text" name="username" placeholder="Имя пользователя">
+                                    <input type="password" name="password" placeholder="Пароль">
+                                    <input type="submit" value="Войти"> 
+                                    <div class="noacc"><a href="reg.html"><b>Нет аккаунта</b></a></div> 
+                                <p> </p>
+                                    <a href="index.html">Закрыть</a>
+                                
+                            </div>
+            </div> 
+                        
+
+
+                        <div class="teambtn">
+                                <li><a href="index.html" class="mainsection"><b>Главная</b></a></li>
+                            <li><b><a href="#team">Наша команда</a></b></li>
+                            <li><b><a href="#distant">Контактная информация.</a></b></li>
+                        </div>
+                    </ul>
+                </nav>
+
+      </header>
+
+      <section id="mainsection" class="main">
+
+        <div class="nameMain">
+        </div>
+          <div class="product">
+            <img src="https://avatars.mds.yandex.net/i?id=ad07376c1b3c01ed2538d26cfa8659b1_l-2390381-images-thumbs&n=13" width="400px" height="275px">
+
+     
+        </div>
+        <div class="product">
+            <img src="https://cdn-edge.kwork.ru/files/portfolio/t3/92/3d3b686472d1f829abccd5dfd9edf533ec81e821-1683809030.jpg" width="400px" height="275px">
+    
+           
+        </div>
+       
+        <!-- Раздел карты -->
+        <section id="map-section">
+            <h2>Карта</h2>
+            
+        </section>
+
+    </main>
+
+    
+
+
+  <!--  <script>
+        // Инициализация карты
+        ymaps.ready(init);
+        function init() {
+            var myMap = new ymaps.Map("map", {
+                center: [55.76, 37.64], // Координаты центра карты (Москва)
+                zoom: 10
+            });
+
+            // Добавление маркера
+            var myPlacemark = new ymaps.Placemark([55.76, 37.64], {
+                balloonContent: 'Это Москва!'
+            });
+
+            myMap.geoObjects.add(myPlacemark);
+        }
+    </script>  -->
+
+
+    <div id="map"></div>
+<select id="colorSelector">
+    <option value="red">Красный</option>
+    <option value="orange">Оранжевый</option>
+    <option value="yellow">Желтый</option>
+    <option value="blue">Голубой</option>
+    <option value="green">Зеленый</option>
+    <option value="pink">Розовый</option>
+    <option value="all">Все метки</option>
+</select>
+<input type="text" id="placemarkText" placeholder="Введите текст для метки" />
+<button id="clearMap">Очистить карту</button>
+
+<script>
+    ymaps.ready(init);
+    var myMap;
+    var placemarks = []; // Массив для хранения информации о метках
+    var placemarksObjects = []; // Массив для хранения объектов меток на карте
+
+    function init() {
+        myMap = new ymaps.Map("map", {
+            center: [55.76, 37.64],
+            zoom: 10
+        });
+
+        // Загружаем и отображаем все метки из массива
+        loadPlacemarks();
+
+        var color = document.getElementById('colorSelector').value; // Начальный цвет
+        var placemarkText = document.getElementById('placemarkText'); // Поле ввода текста
+
+        // Слушаем изменение цвета
+        document.getElementById('colorSelector').addEventListener('change', function(e) {
+            color = e.target.value; // Меняем цвет в зависимости от выбора
+            filterPlacemarksByColor(color); // Применяем фильтр по цвету
+        });
+
+        // Слушаем добавление новой метки
+        myMap.events.add('click', function (e) {
+            var coords = e.get('coords');
+            var text = placemarkText.value || 'Без текста'; // Получаем текст, если он есть
+
+            var placemark = new ymaps.Placemark(coords, {
+                hintContent: 'Новая метка',
+                balloonContent: text // Используем введенный текст как содержимое баллона
+            }, {
+                preset: 'islands#icon',
+                iconColor: color // Устанавливаем выбранный цвет
+            });
+
+            // Добавляем метку в массив для сохранения информации
+            placemarks.push({
+                coords: coords,
+                text: text,
+                color: color
+            });
+
+            // Добавляем метку на карту и сохраняем ее в массив объектов
+            placemarksObjects.push(placemark);
+            myMap.geoObjects.add(placemark);
+
+            // Добавляем обработчик правого клика на метку для её удаления
+            placemark.events.add('contextmenu', function (e) {
+                e.preventDefault(); // Предотвращаем стандартное меню браузера
+                myMap.geoObjects.remove(placemark);
+                // Удаляем метку из массива
+                placemarks = placemarks.filter(function (p) {
+                    return p.coords !== coords;
+                });
+                placemarksObjects = placemarksObjects.filter(function (p) {
+                    return p !== placemark;
+                });
+            });
+
+            // Очистка поля ввода текста после добавления метки
+            placemarkText.value = '';
+        });
+
+        // Обработчик кнопки очистки карты
+        document.getElementById('clearMap').addEventListener('click', function() {
+            myMap.geoObjects.removeAll(); // Удаляем все объекты с карты
+            placemarks = []; // Очищаем массив меток
+            placemarksObjects = []; // Очищаем массив объектов меток
+        });
+    }
+
+    // Функция для загрузки и отображения меток на карте при инициализации
+    function loadPlacemarks() {
+        placemarks.forEach(function(placemarkData) {
+            var placemark = new ymaps.Placemark(placemarkData.coords, {
+                hintContent: 'Метка',
+                balloonContent: placemarkData.text // Используем сохраненный текст
+            }, {
+                preset: 'islands#icon',
+                iconColor: placemarkData.color // Используем сохраненный цвет
+            });
+
+            // Добавляем метку на карту
+            myMap.geoObjects.add(placemark);
+            placemarksObjects.push(placemark); // Сохраняем метку в массив объектов
+        });
+    }
+
+    // Функция фильтрации меток по цвету
+    function filterPlacemarksByColor(color) {
+        placemarksObjects.forEach(function(placemark) {
+            var placemarkColor = placemark.options.get('iconColor');
+            if (color === 'all' || placemarkColor === color) {
+                placemark.options.set('visible', true); // Показываем метку
+            } else {
+                placemark.options.set('visible', false); // Скрываем метку
+            }
+        });
+    }
+</script>
+
+
+
+
+<section class="team" id="team">
+    <h2>Наша команда</h2>
+    <div class="product">
+        <img src="_gfJs4ZgpHw.jpg" alt="">
+        <p><i>Кузнецова Дарина</i></p>
+        <p><b>Разработчик</b></p>
+    </div>
+    <div class="product">
+        <img src="TYAx-PXSNgQ.jpg" alt="">
+        <p><i>Федотова Джульетта</i></p>
+        <p><b>Тестеровщик</b></p>
+    </div>
+    <div class="product">
+        <img src="photo_2024-12-26_23-13-09.jpg" alt="">
+        <p><i>Астахова Алина</i></p>
+        <p><b>Дизайнер, помощник разработчика</b></p>
+    </div>
+</section>
+
+<div class ="parent">
+    <section class="distant" id="distant">
+    <h2>Контактная информация</h2>
+    <div class="distanttext">
+    <h3>Телефон горячей линии</h3>
+    <p>8-800-123-4567</p>
+    <h3>Email</h3>
+    <p>info@maps.com</p>
+    <h3>Адрес</h3> 
+    <p>г. Примерный, ул. Примерная, д. 123</p>
+    <h3>Рабочие часы</h3>
+    <p>Пн-Пт с 8:30 до 20:00</p>
+    </div>
+    </section>
+</div>
+
+    <div class="rating-container">
+    <h2>Оцените наш сайт</h2>
+    <form id="ratingForm" action="submit_rating.php" method="post">
+        <label for="rating">Ваша оценка:</label>
+        <select name="rating" id="rating" required>
+            <option value="">Выберите оценку</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <textarea name="comment" placeholder="Ваш комментарий (необязательно)" rows="4"></textarea>
+        <input type="submit" value="Отправить">
+    </form>
+</div>
+
+<footer>
+    <p>&copy; 2024 Интерактивный сайт для карт. Все права защищены.</p>
+</footer>
+
+
+
+
+  </body>
+  </html>
